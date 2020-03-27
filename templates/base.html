@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap4 %}
+
+<html lang="ru">
+<head>
+    <title>{% block title %} {% endblock title %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {#    <script type="text/javascript" src='/static/js/jquery-3.4.1.slim.js'></script>#}
+    {#    <script type="text/javascript" src='/static/js/bootstrap.bundle.js'></script>#}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="all">
+
+    <!-- font-awesome-icons -->
+    <link href="{% static 'css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700"
+          rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900"
+          rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+
+<body>
+
+<!-- Добавьте модальное окно после открывающего тега body-->
+<div class="modal fade" id="image-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Просмотр изображения</div>
+            </div>
+            <div class="modal-body">
+                <img class="img-responsive center-block big-img" src="" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Блок кода, содержащий галерею Thumbnails -->
+
+<div id="page" >
+    {% include 'include/navbar.html' %}
+    <div id="empty"></div>
+    {% include 'include/header.html' %}
+    <div id="empty"></div>
+    {% block content %}
+    {% endblock content %}
+    {% include 'include/messages.html' %}
+    <div id="empty"></div>
+    {% include 'include/footer.html' %}
+
+</div>
+
+<script type="text/javascript" src='/static/js/scripts.js'></script>
+<script type="text/javascript" src='/static/js/jquery-3.4.1.slim.js'></script>
+<script type="text/javascript" src='/static/js/bootstrap.bundle.js'></script>
+
+<!-- Добавьте следущий сценарий перед закрывающим тегом body -->
+<script>
+// После загрузки DOM-дерева (страницы)
+$(function() {
+    //при нажатии на ссылку, содержащую Thumbnail
+    $('a.thumbnail').click(function(e) {
+        //отменить стандартное действие браузера
+        e.preventDefault();
+        //присвоить атрибуту scr элемента img модального окна
+        //значение атрибута scr изображения, которое обёрнуто
+        //вокруг элемента a, на который нажал пользователь
+        $('#image-modal .modal-body img').attr('src', $(this).find('img').attr('src'));
+        //открыть модальное окно
+        $("#image-modal").modal('show');
+    });
+    //при нажатию на изображение внутри модального окна
+    //закрыть его (модальное окно)
+    $('#image-modal .modal-body img').on('click', function() {
+        $("#image-modal").modal('hide')
+    });
+});
+</script>
+
+</body>
+</html>

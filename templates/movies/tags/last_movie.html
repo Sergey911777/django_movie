@@ -1,0 +1,16 @@
+<div class="last_movie mt-lg-4 mt-2">
+    <h3 class="last_movie-bar">Последние добавленные</h3>
+    {% for movie in last_movies %}
+        <div class="special-sec mt-lg-4 mt-2">
+            <div class="img-last_movie">
+                <img src="{{ movie.poster.url }}" class="img-thumbnail img-fluid poster" alt="">
+            </div>
+            <div class="last_movie-title">
+                <a href="{{ movie.get_absolute_url }}"
+                   class="text">
+                    {{ movie.title }}
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</div>

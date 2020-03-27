@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="allContent">
+        <div class="row">
+            {% include 'include/sidebar.html' %}
+            {% block movie %}
+            {% endblock movie %}
+            {#            <div class="pagination-sm">#}
+            {#                {% load bootstrap4 %}#}
+            {#                {% bootstrap_pagination page_obj %}#}
+            {#            </div>#}
+        </div>
+    </section>
+{% endblock content %}

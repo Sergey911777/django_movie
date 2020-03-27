@@ -1,0 +1,146 @@
+.navbar_menu{
+    width: 100%;
+    height: 56px;
+}
+
+.navbar{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
+
+#empty{
+    background: white;
+    position: relative;
+    height: 60px;
+}
+
+#carouselExampleCaptions{
+    max-height: 600px;
+}
+
+.promo-img{
+    display: block;
+    max-height: 600px;
+    width: 100%;
+}
+
+.poster{
+    height: 150px;
+}
+
+.poster-main{
+    height: 300px;
+}
+
+.movie-shots{
+    height: 200px;
+}
+
+.big-img{
+    height: 600px;
+    max-width: 100%;
+}
+
+.roow-paginator{
+    padding-left: 50%;
+}
+
+.footerContent,.movie-detailContent{
+    text-align: justify;
+}
+
+/* Checkbox stars */
+ul.stars li {
+    display: inline-block;
+}
+
+ul.stars li a span {
+    font-size: 0.7em;
+    color: #6a6c6d;
+    margin: 0 0.2em;
+}
+
+ul.stars li a span:hover {
+    opacity: 0.8;
+}
+
+.rating {
+  overflow: hidden;
+  vertical-align: bottom;
+  display: inline-block;
+  width: 155px;
+  height: 30px;
+}
+
+.rating > input {
+  opacity: 0;
+  margin-right: -100%;
+}
+
+.rating > label {
+  position: relative;
+  display: block;
+  float: right;
+  background: url('../images/star-off-big.png');
+  background-size: 30px 30px;
+}
+
+.rating > label:before {
+  display: block;
+  opacity: 0;
+  content: '';
+  width: 30px;
+  height: 30px;
+  background: url('../images/star-on-big.png');
+  background-size: 30px 30px;
+  transition: opacity 0.2s linear;
+}
+
+.rating > label:hover:before,  .rating > label:hover ~ label:before,  .rating:not(:hover) > :checked ~ label:before { opacity: 1; }
+/* //Checkbox stars */
+
+.cpy-right{
+    height: 80px;
+    text-align: center;
+}
+
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+  section, header, footer {
+    padding: 0 calc(50vw - 270px);
+  }
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  section, header, footer {
+    padding: 0 calc(50vw - 360px);
+  }
+}
+
+@media (min-width: 991.98px) and (max-width: 1199.98px) {
+  section, header, footer {
+    padding: 0 calc(50vw - 480px);
+  }
+}
+
+@media (min-width: 1199.98px){
+  section, header, footer {
+    padding: 0 calc(50vw - 590px);
+  }
+}
+
+@media (max-width:575.98px)
+{ .poster{display:none;} }
+
+ul.errorlist{
+    color: red;
+    list-style: none;
+    font-size: 12px;
+}
+
+.avatar-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
